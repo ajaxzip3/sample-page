@@ -3,7 +3,7 @@
 self.addEventListener('push', function(event) {
   console.log('Received a push message', event);
 
-  fetch("/newmessage.json", {
+  fetch("/sample-page/newmessage.json", {
       "method": "GET"
   }).then(function(response) {
     return response.json();
@@ -24,6 +24,6 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event){
   event.notification.close();
   event.waitUntil(
-    clients.openWindow('/event/')
+    clients.openWindow('https://family1.st/event/')
   );
 });
